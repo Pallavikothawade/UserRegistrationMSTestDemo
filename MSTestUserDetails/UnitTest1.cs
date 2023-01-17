@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Security.Policy;
 using UserRegistrationMSTestDemo;
 
 namespace MSTestUserDetails
@@ -33,6 +34,21 @@ namespace MSTestUserDetails
             foreach (string s in arr)
             {
                 bool actual = userDetails.LastNameTestcase(s);
+                Assert.AreEqual(actual, expected);
+            }
+
+        }
+        [TestMethod]
+        [DataRow(new string[] { "abc.xyz@bl.co.in","abc100@gmail.com" }, true)]
+        [DataRow(new string[] { "@pallavikohtawade@gmail.com", "amorankargmail.com" }, false)]
+
+        public void Email_Id(string[] arr, bool expected)
+        {
+
+            UserDetails userDetails = new UserDetails();
+            foreach (string s in arr)
+            {
+                bool actual = userDetails.Email_IdTestCase(s);
                 Assert.AreEqual(actual, expected);
             }
 
