@@ -22,5 +22,20 @@ namespace MSTestUserDetails
             }
           
         }
+        [TestMethod]
+        [DataRow(new string[] { "Kohtawade", "Morankar", "Sonje"}, true)]
+        [DataRow(new string[] { "kohtawade", "morankar", "sonje" }, false)]
+
+        public void LastName(string[] arr, bool expected)
+        {
+
+            UserDetails userDetails = new UserDetails();
+            foreach (string s in arr)
+            {
+                bool actual = userDetails.LastNameTestcase(s);
+                Assert.AreEqual(actual, expected);
+            }
+
+        }
     }
 }

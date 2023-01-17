@@ -23,5 +23,20 @@ namespace UserRegistrationMSTestDemo
                 return false;
             }
         }
+        public bool LastNameTestcase(string input)
+        {
+            string Pattern = "^[A-Z]{1}[a-z]{2,}$";
+            if (Regex.IsMatch(input, Pattern))
+            {
+                Console.WriteLine("{0} is valid LastName", input);
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("{0} is Invalid LastName", input);
+                return false;
+            }
+        }
+
     }
 }
